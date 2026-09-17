@@ -1091,6 +1091,17 @@ update_m1n1() {
 
     sudo ln -sfn "$PWD" /usr/src/linux
 
+    # update-m1n1 bakes whatever /boot/dtb points at into m1n1's boot stage.
+    # Fedora's 10-devicetree.install repoints it at every stock kernel dnf
+    # installs, so left alone this kernel boots with a stock devicetree that
+    # lacks fairydust's nodes. From upstream 63d154a.
+    if [[ ! -d "/boot/dtbs/$KVER/apple" ]]; then
+        error "/boot/dtbs/$KVER/apple is missing, so dtbs_install did not land.
+Refusing to point /boot/dtb at it: m1n1 would be built with no devicetree."
+    fi
+    info "Pointing /boot/dtb at this kernel's own devicetree ($KVER)..."
+    sudo ln -sfn "/boot/dtbs/$KVER" /boot/dtb
+
     if sudo update-m1n1 2>&1 | tee -a "$LOG_FILE"; then
         ok "m1n1 updated"
     else
