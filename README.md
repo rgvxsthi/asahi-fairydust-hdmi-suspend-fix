@@ -1,4 +1,4 @@
-# asahi-linux-hdmi-sleep-fixer
+# asahi-fairydust-hdmi-suspend-fix
 
 **Fixes the built-in HDMI port staying dark after suspend on Apple Silicon Macs running Asahi Linux.**
 
@@ -71,8 +71,8 @@ That is the entire fix: [`patches/0001-drm-apple-reconnect-DP2HDMI-output-on-res
 ## Usage
 
 ```bash
-git clone https://github.com/rgvxsthi/asahi-linux-hdmi-sleep-fixer.git
-cd asahi-linux-hdmi-sleep-fixer
+git clone https://github.com/rgvxsthi/asahi-fairydust-hdmi-suspend-fix.git
+cd asahi-fairydust-hdmi-suspend-fix
 ./asahi-fairydust-build.sh
 ```
 
@@ -269,7 +269,7 @@ normal outcome, not a problem. The exception is a patch you named explicitly via
 Each remaining patch is offered as its own prompt, defaulting to yes, so you can take the HDMI fix and decline BORE:
 
 ```
-[INFO]  Patches available in /home/you/asahi-linux-hdmi-sleep-fixer/patches
+[INFO]  Patches available in /home/you/asahi-fairydust-hdmi-suspend-fix/patches
 
     Everyone with a physical HDMI port (MacBook Pro 14/16, Mac mini). This is the point of this repo.
 Apply: Fixes the built-in HDMI port staying dark after suspend [Y/n]:
